@@ -1,23 +1,25 @@
 
-<?php include('./connection/actions/login.php'); ?>
-<?php include('./include/redirect_to_home_on_logged_in.php'); ?>
+<?php include './connection/actions/login.php';?>
+<?php include './include/redirect_to_home_on_logged_in.php';?>
 <!DOCTYPE html>
 <html>
 <head>
-<?php include('./include/header.php'); ?>
+<?php include './include/header.php';?>
 </head>
 <body>
 <a href='./register.php'>Register </a>
 <br>
 <br>
 <div class="row box" id="login-box">
+<div class='col-md-3'>
+</div>
 	<div class="col-md-6 col-md-offset-3">
 		<div class="panel panel-login">
 		<div class="panel-body">
 			<div class="row">
 				<div class="col-lg-12">
 				  <div class="alert alert-danger" role="alert" id="error" style="display: none;">...</div>
-				  <?php include('./connection/actions/errors.php'); ?>
+				  <?php include './connection/actions/errors.php';?>
                   <form id="login-form" name="login_form" role="form" style="display: block;" method="post" action='index.php'>
 					  <div class="form-group">
 						<input type=text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=""  required>

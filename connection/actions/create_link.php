@@ -5,48 +5,39 @@ include './connection/ChromePhp.php';
 // ChromePhp::log('Registration console!');
 
 $errors = array();
+$success = array();
 
 // Escaping datas to prevent injections
-if (isset($_POST['registration-submit'])) {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = $_POST['password'];
+if (isset($_POST['link-submit'])) {
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $link_url = mysqli_real_escape_string($conn, $_POST['link']);
+    
+    if(strlen($title)==0 || strlen($link_url)==0){
+        
+        array_push($errors, "One or more field empty.");   
 
-    ChromePhp::log($username);
-    ChromePhp::log($password);
+    }
+    
+    
 
     // Checking for existing users
-    $user_check_query = "SELECT * FROM User WHERE id='$username' OR email='$email' LIMIT 1";
-
-    $result = mysqli_query($conn, $user_check_query);
-    $user = mysqli_fetch_assoc($result);
-
-    if ($user) { // if user exists
-        if ($user['id'] === $username) {
-            array_push($errors, "Username already exists");
-            ChromePhp::log("Username already exists.");
-            echo "usernmae exists";
-        }
-
-        if ($user['email'] === $email) {
-            ChromePhp::log("Email already exists.");
-            array_push($errors, "email already exists");
-        }
-    }
-
-    if(strlen($password)<5)
-    {
-        array_push($errors, "Password must be minimum of 5 characters.");   
-    }
+    
 
     if (count($errors) == 0) {
    
-        $password = password_hash($password, PASSWORD_BCRYPT);
-        ChromePhp::log($password);
-        mysqli_query($conn, "Insert into User(id, name, email, password) values('$username', '$name', '$email', '$password')");
+        $date = date('Y-m-d H:i');
+        session_start();
+        $user_id=$_SESSION['id'];
+
+        $result=mysqli_query($conn, "Insert into IncenseLink(user_id, datetime, link_url, title) values('$user_id', '$date', '$link_url', '$title')");
+        if($result)
+            array_push($success, "Successfully posted a new link.");  
+        else
+            array_push($errors, "Server Error.");  
         // echo "hello";
-        header("location: index.php");
+        // header("location: index.php");
     }
 
 }
+
+?>

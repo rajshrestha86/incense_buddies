@@ -11,6 +11,8 @@
 <br>
 <br>
 <div class="row box" id="login-box">
+<div class='col-md-3'>
+</div>
 	<div class="col-md-6 col-md-offset-3">
 		<div class="panel panel-login">
 		<div class="panel-body">
