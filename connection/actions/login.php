@@ -34,7 +34,7 @@ if (isset($_POST['login-submit'])) {
                 session_start();
                 $_SESSION['id'] = $username;
                 $_SESSION['success'] = "You are now logged in";
-                header('location: home.php');
+                header('location: ./home.php');
             } else {
                 array_push($errors, "Wrong username/password combination");
             }

@@ -1,20 +1,18 @@
-<?php
+<?php 
 session_start();
-if (!isset($_SESSION['id'])) {
-    header('location: index.php');
+if (!isset($_SESSION['id'])){
+        header('location: index.php');
 }
 
-print_r($_SESSION);
 ?>
-
 <html>
 <head>
-<?php include 'header.php';?>
+<?php include './include/header.php';?>
 </head>
 <body>
-<?php include 'navigation_bar.php' ?>
+<?php include './include/navigation_bar.php' ?>
 <h1> Welcome </h1>
-<a href='./logout.php'>Logout</a>
+<a href='./include/logout.php'>Logout</a>
 
 <duv class='container'>
     <div  class='row'>

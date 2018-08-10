@@ -1,10 +1,10 @@
 
 <?php include('./connection/actions/registration.php'); ?>
-<?php include('./redirect_to_home_on_logged_in.php'); ?>
+<?php include('./include/redirect_to_home_on_logged_in.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
-<?php include('header.php'); ?>
+<?php include('./include/header.php'); ?>
 </head>
 <body>
 <a href='./index.php'>Login </a>
