@@ -36,13 +36,16 @@ if (isset($_POST['login-submit'])) {
                 $_SESSION['success'] = "You are now logged in";
                 header('location: ./home.php');
             } else {
-                array_push($errors, "Wrong username/password combination");
+                ChromePhp::log('Wrong password');
+                array_push($errors, "Wrong password.");
             }
 
         } else {
+            ChromePhp::log('Wrong username');
             array_push($errors, "Wrong username/password combination");
         }
     }
+    ChromePhp::log($errors);
 }
 
 ?>

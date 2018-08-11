@@ -17,6 +17,12 @@ if (isset($_POST['link-submit'])) {
         array_push($errors, "One or more field empty.");   
 
     }
+
+    if(strlen($title)>60){
+        array_push($errors, "Title should be less than 60 characters.");   
+        return;
+
+    }
     
     
 

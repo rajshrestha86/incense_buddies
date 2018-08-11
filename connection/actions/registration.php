@@ -15,6 +15,7 @@ if (isset($_POST['registration-submit'])) {
 
     ChromePhp::log($username);
     ChromePhp::log($password);
+    ChromePhp::log($conn);
 
     // Checking for existing users
     $user_check_query = "SELECT * FROM User WHERE id='$username' OR email='$email' LIMIT 1";

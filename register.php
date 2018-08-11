@@ -7,7 +7,8 @@
 <?php include('./include/header.php'); ?>
 </head>
 <body>
-<a href='./index.php'>Login </a>
+	<div class="bg-light navbar justify-content-center"><a href='./index.php'>Login </a></div>
+
 <br>
 <br>
 <div class="row box" id="login-box">

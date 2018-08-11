@@ -6,3 +6,8 @@
   	<?php endforeach ?>
   </div>
 <?php  endif ?>
+
+
+<script type="text/javascript">
+	console.log("errors...");
+</script>
